@@ -3,14 +3,12 @@
   <div class="container">
     <TodoHeader />
     <TodoContainer />
-    <TodoFooter />
   </div>
 </template>
 
 <script>
 import TodoHeader from "./components/TodoHeader.vue";
 import TodoContainer from "./components/TodoContainer.vue";
-import TodoFooter from "./components/TodoFooter.vue";
 
 export default {
   name: "App",
@@ -22,7 +20,6 @@ export default {
   components: {
     TodoHeader,
     TodoContainer,
-    TodoFooter,
   },
 };
 </script>
