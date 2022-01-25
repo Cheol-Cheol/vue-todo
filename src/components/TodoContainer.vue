@@ -24,7 +24,6 @@ export default {
   border-radius: 15px;
   width: 600px;
   height: 550px;
-  margin-bottom: -7px;
 }
 input {
   margin: 15px;

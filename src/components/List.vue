@@ -2,73 +2,49 @@
   <ul>
     <li class="row shadow">
       <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9">공부하기</span>
+      <span class="col-9 li-text">아침에 일어나서 물마시기</span>
       <span class="col-1"><i class="fas fa-edit"></i></span>
       <span class="col-1"><i class="fas fa-trash-alt"></i></span>
     </li>
     <li class="row shadow">
       <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9">공부하기</span>
+      <span class="col-9 li-text">아침에 일어나서 물마시기</span>
       <span class="col-1"><i class="fas fa-edit"></i></span>
       <span class="col-1"><i class="fas fa-trash-alt"></i></span>
     </li>
     <li class="row shadow">
       <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9">공부하기</span>
+      <span class="col-9 li-text">아침에 일어나서 물마시기</span>
       <span class="col-1"><i class="fas fa-edit"></i></span>
       <span class="col-1"><i class="fas fa-trash-alt"></i></span>
     </li>
     <li class="row shadow">
       <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9">공부하기</span>
+      <span class="col-9 li-text">아침에 일어나서 물마시기</span>
       <span class="col-1"><i class="fas fa-edit"></i></span>
       <span class="col-1"><i class="fas fa-trash-alt"></i></span>
     </li>
     <li class="row shadow">
       <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9">공부하기</span>
+      <span class="col-9 li-text">아침에 일어나서 물마시기</span>
       <span class="col-1"><i class="fas fa-edit"></i></span>
       <span class="col-1"><i class="fas fa-trash-alt"></i></span>
     </li>
     <li class="row shadow">
       <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9">공부하기</span>
+      <span class="col-9 li-text">아침에 일어나서 물마시기</span>
       <span class="col-1"><i class="fas fa-edit"></i></span>
       <span class="col-1"><i class="fas fa-trash-alt"></i></span>
     </li>
     <li class="row shadow">
       <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9">공부하기</span>
+      <span class="col-9 li-text">아침에 일어나서 물마시기</span>
       <span class="col-1"><i class="fas fa-edit"></i></span>
       <span class="col-1"><i class="fas fa-trash-alt"></i></span>
     </li>
     <li class="row shadow">
       <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9">공부하기</span>
-      <span class="col-1"><i class="fas fa-edit"></i></span>
-      <span class="col-1"><i class="fas fa-trash-alt"></i></span>
-    </li>
-    <li class="row shadow">
-      <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9">공부하기</span>
-      <span class="col-1"><i class="fas fa-edit"></i></span>
-      <span class="col-1"><i class="fas fa-trash-alt"></i></span>
-    </li>
-    <li class="row shadow">
-      <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9">공부하기</span>
-      <span class="col-1"><i class="fas fa-edit"></i></span>
-      <span class="col-1"><i class="fas fa-trash-alt"></i></span>
-    </li>
-    <li class="row shadow">
-      <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9">공부하기</span>
-      <span class="col-1"><i class="fas fa-edit"></i></span>
-      <span class="col-1"><i class="fas fa-trash-alt"></i></span>
-    </li>
-    <li class="row shadow">
-      <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9">공부하기</span>
+      <span class="col-9 li-text">아침에 일어나서 물마시기</span>
       <span class="col-1"><i class="fas fa-edit"></i></span>
       <span class="col-1"><i class="fas fa-trash-alt"></i></span>
     </li>
@@ -101,5 +77,8 @@ li {
   padding: 5px 0;
   border-radius: 8px;
   background-color: grey;
+}
+.li-text {
+  padding-left: 50px;
 }
 </style>
