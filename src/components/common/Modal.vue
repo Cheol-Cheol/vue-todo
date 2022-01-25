@@ -1,71 +1,77 @@
 <template>
-  <transition name="modal">
-    <div v-if="showModal == true">
-      <div class="black-bg">1</div>
-      <!-- <slot> -->
+  <transition name="m">
+    <div class="black-bg">
+      <div class="white-bg">
+        <h3 class="m-header">내용을 입력해주세요.</h3>
+        <p class="m-body"></p>
+        <button @click="closeModal" class="m-btn">닫기</button>
+      </div>
     </div>
+    <!-- <slot> -->
   </transition>
 </template>
 
 <script>
 export default {
   name: "Modal",
-  props: {
-    showModal: Boolean,
+  methods: {
+    closeModal() {
+      this.$emit("closeModal", false);
+    },
   },
 };
 </script>
 
 <style scoped>
-/* .black-bg {
+.black-bg {
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   position: fixed;
+  right: 0;
+  top: 0;
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .white-bg {
-  width: 100%;
   background: white;
+  width: 33%;
   border-radius: 8px;
   padding: 20px;
+  color: black;
 }
-.modal-btn {
-  padding: 10px 30px;
-  color: white;
-  background: darkslateblue;
+.m-header {
+  margin-bottom: 20px;
+}
+.m-body {
+  color: darkgray;
+}
+.m-btn {
   border: none;
-  border-radius: 5px;
-} */
-.modal-mask {
-  position: fixed;
-  z-index: 9998;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: table;
-  transition: opacity 0.3s ease;
+  background-color: #584e8b;
+  color: #eee;
+  padding: 5px 20px;
+  border-radius: 8px;
 }
-
-.modal-enter-from {
+.m-enter-from {
   transform: translateY(-1000px);
 }
-.modal-enter-active {
+.m-enter-active {
   transition: all 1s;
 }
-.modal-enter-to {
+.m-enter-to {
   transform: translateY(0px);
 }
 
-.modal-leave-from {
+.m-leave-from {
   transform: translateY(0px);
 }
-.modal-leave-active {
+.m-leave-active {
   transition: all 1s;
 }
-.modal-leave-to {
+.m-leave-to {
   transform: translateY(-1000px);
 }
 </style>

@@ -6,21 +6,26 @@
       type="text"
       placeholder="할 일을 입력하시오."
     />
+
     <List />
-    <NavBar />
+
+    <!-- NavBar -->
+    <nav class="d-flex justify-content-around">
+      <span class="active">할 일 목록</span>
+      <span>완료된 목록</span>
+    </nav>
 
     <!-- 버튼 -->
     <span @click="addTodo" class="addBtn shadow">
       <i class="fas fa-plus"></i>
     </span>
 
-    <Modal :showModal="showModal" @closeModal="showModal = false" />
+    <Modal v-if="showModal == true" @closeModal="showModal = $event" />
   </div>
 </template>
 
 <script>
 import List from "./List.vue";
-import NavBar from "./NavBar.vue";
 import Modal from "./common/Modal.vue";
 
 export default {
@@ -44,7 +49,6 @@ export default {
   },
   components: {
     List,
-    NavBar,
     Modal,
   },
 };
@@ -69,6 +73,8 @@ input {
 .container {
   padding: 0;
 }
+
+/* addBtn */
 .addBtn {
   background-color: #584e8b;
   border-radius: 25px;
@@ -88,5 +94,25 @@ input {
   font-size: 26px;
   vertical-align: middle;
   color: wheat;
+}
+
+/* NavBar */
+nav {
+  background: #82b440;
+  height: 42px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  font-size: 20px;
+  line-height: 42px;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+nav span {
+  width: 50%;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+.active {
+  background: #4b6726;
 }
 </style>
