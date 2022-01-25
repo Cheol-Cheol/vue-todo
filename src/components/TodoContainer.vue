@@ -1,5 +1,5 @@
 <template>
-  <div class="container todo-container shadow">
+  <div class="todo-container shadow container">
     <input type="text" placeholder="할 일을 입력하시오." />
     <List />
     <NavBar />
@@ -35,5 +35,8 @@ input {
   border-radius: 8px;
   outline: none;
   background-color: #eee;
+}
+.container {
+  padding: 0;
 }
 </style>
