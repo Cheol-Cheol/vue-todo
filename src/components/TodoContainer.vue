@@ -1,18 +1,20 @@
 <template>
-  <div class="todo-container shadow">
+  <div class="container todo-container shadow">
     <input type="text" placeholder="할 일을 입력하시오." />
-
     <List />
+    <NavBar />
   </div>
 </template>
 
 <script>
 import List from "./List.vue";
+import NavBar from "./NavBar.vue";
 
 export default {
   name: "TodoContainer",
   components: {
     List,
+    NavBar,
   },
 };
 </script>
@@ -20,20 +22,18 @@ export default {
 <style scoped>
 .todo-container {
   border-radius: 15px;
-  margin: 0 auto;
   width: 600px;
   height: 550px;
-  margin-bottom: 40px;
+  margin-bottom: -7px;
 }
 input {
   margin: 15px;
   width: 80%;
-  padding: 5px;
+  padding: 5px 30px;
   font-size: 20px;
   border: none;
   border-radius: 8px;
   outline: none;
   background-color: #eee;
-  text-align: center;
 }
 </style>
