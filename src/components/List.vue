@@ -1,50 +1,8 @@
 <template>
   <ul>
-    <li class="row shadow">
+    <li v-for="todoItem in todoItems" :key="todoItem" class="row shadow">
       <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9 li-text">아침에 일어나서 물마시기</span>
-      <span class="col-1"><i class="fas fa-edit"></i></span>
-      <span class="col-1"><i class="fas fa-trash-alt"></i></span>
-    </li>
-    <li class="row shadow">
-      <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9 li-text">아침에 일어나서 물마시기</span>
-      <span class="col-1"><i class="fas fa-edit"></i></span>
-      <span class="col-1"><i class="fas fa-trash-alt"></i></span>
-    </li>
-    <li class="row shadow">
-      <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9 li-text">아침에 일어나서 물마시기</span>
-      <span class="col-1"><i class="fas fa-edit"></i></span>
-      <span class="col-1"><i class="fas fa-trash-alt"></i></span>
-    </li>
-    <li class="row shadow">
-      <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9 li-text">아침에 일어나서 물마시기</span>
-      <span class="col-1"><i class="fas fa-edit"></i></span>
-      <span class="col-1"><i class="fas fa-trash-alt"></i></span>
-    </li>
-    <li class="row shadow">
-      <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9 li-text">아침에 일어나서 물마시기</span>
-      <span class="col-1"><i class="fas fa-edit"></i></span>
-      <span class="col-1"><i class="fas fa-trash-alt"></i></span>
-    </li>
-    <li class="row shadow">
-      <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9 li-text">아침에 일어나서 물마시기</span>
-      <span class="col-1"><i class="fas fa-edit"></i></span>
-      <span class="col-1"><i class="fas fa-trash-alt"></i></span>
-    </li>
-    <li class="row shadow">
-      <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9 li-text">아침에 일어나서 물마시기</span>
-      <span class="col-1"><i class="fas fa-edit"></i></span>
-      <span class="col-1"><i class="fas fa-trash-alt"></i></span>
-    </li>
-    <li class="row shadow">
-      <span class="col-1"><i class="check fas fa-check-square"></i></span>
-      <span class="col-9 li-text">아침에 일어나서 물마시기</span>
+      <span class="col-9 li-text">{{ todoItem }}</span>
       <span class="col-1"><i class="fas fa-edit"></i></span>
       <span class="col-1"><i class="fas fa-trash-alt"></i></span>
     </li>
@@ -54,6 +12,9 @@
 <script>
 export default {
   name: "List",
+  props: {
+    todoItems: Array,
+  },
 };
 </script>
 

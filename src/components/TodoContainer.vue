@@ -7,7 +7,7 @@
       placeholder="할 일을 입력하시오."
     />
 
-    <List />
+    <List :todoItems="todoItems" />
 
     <!-- NavBar -->
     <nav class="d-flex justify-content-around">
@@ -36,11 +36,18 @@ export default {
       showModal: false,
     };
   },
+  props: {
+    todoItems: Array,
+  },
   methods: {
     addTodo() {
       if (this.newTodoItem !== "") {
-        localStorage.setItem(this.newTodoItem, this.newTodoItem);
+        const obj = {
+          item: this.newTodoItem,
+        };
+        localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
         this.newTodoItem = "";
+        this.$emit("addOneTodo", obj);
       } else {
         // 모달창
         this.showModal = true;
@@ -62,6 +69,7 @@ export default {
 }
 input {
   margin: 15px;
+  margin-right: 1px;
   width: 80%;
   padding: 5px 30px;
   font-size: 20px;
@@ -81,7 +89,7 @@ input {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 83px;
+  bottom: 55px;
   margin-left: auto;
   margin-right: auto;
   width: 100px;

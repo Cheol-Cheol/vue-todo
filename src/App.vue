@@ -2,7 +2,7 @@
   <div class="fixed">{{ date() }}일</div>
   <div class="container">
     <TodoHeader :todoItems="todoItems" />
-    <TodoContainer :todoItems="todoItems" />
+    <TodoContainer :todoItems="todoItems" @addOneTodo="addOneTodo" />
   </div>
 </template>
 
@@ -21,6 +21,9 @@ export default {
     date() {
       const now = new Date();
       return now.getDate();
+    },
+    addOneTodo(data) {
+      this.todoItems.unshift(data.item);
     },
   },
   created() {
