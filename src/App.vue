@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed">25일</div>
+  <div class="fixed">{{ date() }}일</div>
   <div class="container">
     <TodoHeader />
     <TodoContainer />
@@ -16,6 +16,12 @@ export default {
     return {
       todoItems: [],
     };
+  },
+  methods: {
+    date() {
+      const now = new Date();
+      return now.getDate();
+    },
   },
   components: {
     TodoHeader,

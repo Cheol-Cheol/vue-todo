@@ -14,19 +14,21 @@
       <i class="fas fa-plus"></i>
     </span>
 
-    <Modal />
+    <Modal :showModal="showModal" @closeModal="showModal = false" />
   </div>
 </template>
 
 <script>
 import List from "./List.vue";
 import NavBar from "./NavBar.vue";
+import Modal from "./common/Modal.vue";
 
 export default {
   name: "TodoContainer",
   data() {
     return {
       newTodoItem: "",
+      showModal: false,
     };
   },
   methods: {
@@ -36,12 +38,14 @@ export default {
         this.newTodoItem = "";
       } else {
         // 모달창
+        this.showModal = true;
       }
     },
   },
   components: {
     List,
     NavBar,
+    Modal,
   },
 };
 </script>
