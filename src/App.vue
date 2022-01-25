@@ -1,22 +1,42 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <button class="btn btn-primary">버튼</button>
+  <div class="fixed">25일</div>
+  <div class="container">
+    <TodoHeader />
+    <TodoContainer />
+    <TodoFooter />
+  </div>
 </template>
 
 <script>
+import TodoHeader from "./components/TodoHeader.vue";
+import TodoContainer from "./components/TodoContainer.vue";
+import TodoFooter from "./components/TodoFooter.vue";
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    TodoHeader,
+    TodoContainer,
+    TodoFooter,
+  },
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body {
+  background-color: #333333;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #eee;
+}
+.container {
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  /* background-color: white; */
+}
+.fixed {
+  position: fixed;
+  right: 15px;
+  top: 10px;
+  font-size: 20px;
 }
 </style>
