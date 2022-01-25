@@ -1,8 +1,8 @@
 <template>
   <div class="fixed">{{ date() }}일</div>
   <div class="container">
-    <TodoHeader />
-    <TodoContainer />
+    <TodoHeader :todoItems="todoItems" />
+    <TodoContainer :todoItems="todoItems" />
   </div>
 </template>
 
@@ -22,6 +22,13 @@ export default {
       const now = new Date();
       return now.getDate();
     },
+  },
+  created() {
+    for (let i = 0; i < localStorage.length; i++) {
+      if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
+        this.todoItems.push(localStorage.key(i));
+      }
+    }
   },
   components: {
     TodoHeader,
