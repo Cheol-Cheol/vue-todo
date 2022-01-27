@@ -6,6 +6,7 @@
       :todoItems="todoItems"
       @addOneTodo="addOneTodo"
       @editOneTodo="editOneTodo"
+      @removeOneTodo="removeOneTodo"
     />
   </div>
 </template>
@@ -43,6 +44,10 @@ export default {
       console.log(obj);
       localStorage.setItem(data.editedTodo, JSON.stringify(obj));
       this.todoItems[data.index].item = data.editedTodo;
+    },
+    removeOneTodo(data) {
+      // console.log(data);
+      this.todoItems.splice(data.index, 1);
     },
   },
   created() {

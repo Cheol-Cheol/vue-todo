@@ -6,7 +6,9 @@
       <span @click="editTodo(todoItem.item, index)" class="col-1"
         ><i class="fas fa-edit"></i
       ></span>
-      <span class="col-1"><i class="fas fa-trash-alt"></i></span>
+      <span @click="removeTodo(todoItem.item, index)" class="col-1"
+        ><i class="fas fa-trash-alt"></i
+      ></span>
     </li>
   </ul>
 </template>
@@ -19,10 +21,18 @@ export default {
   },
   methods: {
     editTodo(data, index) {
-      // console.log(data, index);
-      localStorage.removeItem(data);
       const editedTodo = prompt("변경할 내용을 입력하시오.", data);
-      this.$emit("editOneTodo", { editedTodo, index });
+      if (editedTodo !== "") {
+        localStorage.removeItem(data);
+        this.$emit("editOneTodo", { editedTodo, index });
+      } else {
+        alert("내용은 입력하세요");
+        this.editTodo(data, index);
+      }
+    },
+    removeTodo(data, index) {
+      localStorage.removeItem(data);
+      this.$emit("removeOneTodo", { data, index });
     },
   },
 };
@@ -51,5 +61,11 @@ li {
 }
 .li-text {
   padding-left: 50px;
+}
+.fa-edit:hover {
+  color: #584e8b;
+}
+.fa-trash-alt:hover {
+  color: rgb(237, 108, 108);
 }
 </style>

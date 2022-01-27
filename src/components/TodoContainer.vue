@@ -7,7 +7,11 @@
       placeholder="할 일을 입력하시오."
     />
 
-    <List :todoItems="todoItems" @editOneTodo="editPassApp" />
+    <List
+      :todoItems="todoItems"
+      @editOneTodo="editPassApp"
+      @removeOneTodo="removePassApp"
+    />
 
     <!-- NavBar -->
     <nav class="d-flex justify-content-around">
@@ -52,6 +56,9 @@ export default {
     },
     editPassApp(data) {
       this.$emit("editOneTodo", data);
+    },
+    removePassApp(data) {
+      this.$emit("removeOneTodo", data);
     },
   },
   components: {
