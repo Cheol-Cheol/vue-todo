@@ -1,10 +1,12 @@
 <template>
   <ul>
-    <li v-for="(todoItem, index) in todoItems" :key="index" class="row shadow">
-      <span
-        @click="toggleComplete(todoItem, index)"
-        :class="{ completed: todoItem.completed }"
-        class="col-1"
+    <li
+      v-for="(todoItem, index) in todoItems"
+      :key="index"
+      :class="{ completed: todoItem.completed }"
+      class="row shadow"
+    >
+      <span @click="toggleComplete(todoItem, index)" class="col-1"
         ><i class="check fas fa-check-square"></i
       ></span>
       <span class="col-9 li-text">{{ todoItem.item }}</span>
@@ -36,8 +38,10 @@ export default {
       }
     },
     removeTodo(data, index) {
-      localStorage.removeItem(data);
-      this.$emit("removeOneTodo", { data, index });
+      if (confirm("해당 todo를 삭제하시겠습니까?")) {
+        localStorage.removeItem(data);
+        this.$emit("removeOneTodo", { data, index });
+      }
     },
     toggleComplete(data, index) {
       const completedTodo = JSON.parse(localStorage.getItem(data.item));
@@ -80,6 +84,6 @@ li {
   color: rgb(237, 108, 108);
 }
 .completed {
-  color: dodgerblue;
+  background-color: #82b440;
 }
 </style>
