@@ -4,10 +4,13 @@
     <TodoHeader :todoItems="todoItems" />
     <TodoContainer
       :todoItems="todoItems"
+      :completedItems="completedItems"
       @addOneTodo="addOneTodo"
       @editOneTodo="editOneTodo"
       @removeOneTodo="removeOneTodo"
       @toggleOneTodo="toggleOneTodo"
+      @stepZero="stepZero"
+      @stepOne="stepOne"
     />
   </div>
 </template>
@@ -21,6 +24,7 @@ export default {
   data() {
     return {
       todoItems: [],
+      completedItems: [],
     };
   },
   methods: {
@@ -55,12 +59,24 @@ export default {
       this.todoItems[data.index].completed =
         !this.todoItems[data.index].completed;
     },
+    stepZero() {
+      this.step = 0;
+    },
+    stepOne() {
+      this.step = 1;
+      this.completedItems = this.todoItems.filter((item) => {
+        return item.filter == true;
+      });
+    },
   },
   created() {
     if (localStorage.length > 0) {
       for (let i = 0; i < localStorage.length; i++) {
         if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
           this.todoItems.push(
+            JSON.parse(localStorage.getItem(localStorage.key(i)))
+          );
+          this.completedItems.push(
             JSON.parse(localStorage.getItem(localStorage.key(i)))
           );
         }

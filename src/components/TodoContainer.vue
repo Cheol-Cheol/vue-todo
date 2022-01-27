@@ -7,17 +7,19 @@
       placeholder="할 일을 입력하시오."
     />
 
-    <List
+    <router-view
       :todoItems="todoItems"
+      :completedItems="completedItems"
       @editOneTodo="editPassApp"
       @removeOneTodo="removePassApp"
       @toggleCompleted="togglePassApp"
-    />
+    ></router-view>
 
+    <!-- <router-link></router-link> -->
     <!-- NavBar -->
     <nav class="d-flex justify-content-around">
-      <span class="active">할 일 목록</span>
-      <span>완료된 목록</span>
+      <span @click="$router.push('/')" class="active">할 일 목록</span>
+      <span @click="$router.push('/completed')">완료된 목록</span>
     </nav>
 
     <!-- 버튼 -->
@@ -30,7 +32,6 @@
 </template>
 
 <script>
-import List from "./List.vue";
 import Modal from "./common/Modal.vue";
 
 export default {
@@ -43,6 +44,7 @@ export default {
   },
   props: {
     todoItems: Array,
+    completedItems: Array,
   },
   methods: {
     addTodo() {
@@ -66,7 +68,6 @@ export default {
     },
   },
   components: {
-    List,
     Modal,
   },
 };
