@@ -22,14 +22,24 @@ export default {
       const now = new Date();
       return now.getDate();
     },
-    addOneTodo(data) {
-      this.todoItems.unshift(data.item);
+    addOneTodo(newTodo) {
+      console.log(newTodo);
+      const obj = {
+        item: newTodo,
+        completed: false,
+      };
+      localStorage.setItem(newTodo, JSON.stringify(obj));
+      this.todoItems.push(obj);
     },
   },
   created() {
-    for (let i = 0; i < localStorage.length; i++) {
-      if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
-        this.todoItems.push(localStorage.key(i));
+    if (localStorage.length > 0) {
+      for (let i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
+          this.todoItems.push(
+            JSON.parse(localStorage.getItem(localStorage.key(i)))
+          );
+        }
       }
     }
   },

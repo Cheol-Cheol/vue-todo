@@ -42,12 +42,9 @@ export default {
   methods: {
     addTodo() {
       if (this.newTodoItem !== "") {
-        const obj = {
-          item: this.newTodoItem,
-        };
-        localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+        // 데이터의 조작은 app.vue에서만
+        this.$emit("addOneTodo", this.newTodoItem);
         this.newTodoItem = "";
-        this.$emit("addOneTodo", obj);
       } else {
         // 모달창
         this.showModal = true;
