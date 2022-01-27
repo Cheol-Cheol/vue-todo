@@ -106,10 +106,9 @@ input {
   width: 70px;
   border-radius: 50%;
   padding: 20px 0;
+  cursor: pointer;
 }
-.addBtn:hover {
-  background: black;
-}
+
 .addBtn i {
   font-size: 26px;
   vertical-align: middle;
