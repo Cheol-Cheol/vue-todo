@@ -11,6 +11,7 @@
       :todoItems="todoItems"
       @editOneTodo="editPassApp"
       @removeOneTodo="removePassApp"
+      @toggleCompleted="togglePassApp"
     />
 
     <!-- NavBar -->
@@ -59,6 +60,9 @@ export default {
     },
     removePassApp(data) {
       this.$emit("removeOneTodo", data);
+    },
+    togglePassApp(data) {
+      this.$emit("toggleOneTodo", data);
     },
   },
   components: {

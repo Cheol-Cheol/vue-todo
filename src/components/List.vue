@@ -1,7 +1,12 @@
 <template>
   <ul>
     <li v-for="(todoItem, index) in todoItems" :key="index" class="row shadow">
-      <span class="col-1"><i class="check fas fa-check-square"></i></span>
+      <span
+        @click="toggleComplete(todoItem, index)"
+        :class="{ completed: todoItem.completed }"
+        class="col-1"
+        ><i class="check fas fa-check-square"></i
+      ></span>
       <span class="col-9 li-text">{{ todoItem.item }}</span>
       <span @click="editTodo(todoItem.item, index)" class="col-1"
         ><i class="fas fa-edit"></i
@@ -33,6 +38,12 @@ export default {
     removeTodo(data, index) {
       localStorage.removeItem(data);
       this.$emit("removeOneTodo", { data, index });
+    },
+    toggleComplete(data, index) {
+      const completedTodo = JSON.parse(localStorage.getItem(data.item));
+      completedTodo.completed = !completedTodo.completed;
+      localStorage.setItem(completedTodo.item, JSON.stringify(completedTodo));
+      this.$emit("toggleCompleted", { data, index });
     },
   },
 };
@@ -67,5 +78,8 @@ li {
 }
 .fa-trash-alt:hover {
   color: rgb(237, 108, 108);
+}
+.completed {
+  color: dodgerblue;
 }
 </style>

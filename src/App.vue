@@ -7,6 +7,7 @@
       @addOneTodo="addOneTodo"
       @editOneTodo="editOneTodo"
       @removeOneTodo="removeOneTodo"
+      @toggleOneTodo="toggleOneTodo"
     />
   </div>
 </template>
@@ -48,6 +49,11 @@ export default {
     removeOneTodo(data) {
       // console.log(data);
       this.todoItems.splice(data.index, 1);
+    },
+    toggleOneTodo(data) {
+      // console.log(data);
+      this.todoItems[data.index].completed =
+        !this.todoItems[data.index].completed;
     },
   },
   created() {
