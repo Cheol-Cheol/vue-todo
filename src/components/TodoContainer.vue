@@ -7,7 +7,7 @@
       placeholder="할 일을 입력하시오."
     />
 
-    <List :todoItems="todoItems" />
+    <List :todoItems="todoItems" @editOneTodo="editPassApp" />
 
     <!-- NavBar -->
     <nav class="d-flex justify-content-around">
@@ -50,6 +50,9 @@ export default {
         this.showModal = true;
       }
     },
+    editPassApp(data) {
+      this.$emit("editOneTodo", data);
+    },
   },
   components: {
     List,
@@ -89,7 +92,8 @@ input {
   bottom: 55px;
   margin-left: auto;
   margin-right: auto;
-  width: 100px;
+  width: 70px;
+  border-radius: 50%;
   padding: 20px 0;
 }
 .addBtn:hover {

@@ -2,7 +2,11 @@
   <div class="fixed">{{ date() }}일</div>
   <div class="container">
     <TodoHeader :todoItems="todoItems" />
-    <TodoContainer :todoItems="todoItems" @addOneTodo="addOneTodo" />
+    <TodoContainer
+      :todoItems="todoItems"
+      @addOneTodo="addOneTodo"
+      @editOneTodo="editOneTodo"
+    />
   </div>
 </template>
 
@@ -23,13 +27,22 @@ export default {
       return now.getDate();
     },
     addOneTodo(newTodo) {
-      console.log(newTodo);
       const obj = {
         item: newTodo,
         completed: false,
       };
       localStorage.setItem(newTodo, JSON.stringify(obj));
       this.todoItems.push(obj);
+    },
+    editOneTodo(data) {
+      // console.log(data);
+      const obj = {
+        item: data.editedTodo,
+        completed: false,
+      };
+      console.log(obj);
+      localStorage.setItem(data.editedTodo, JSON.stringify(obj));
+      this.todoItems[data.index].item = data.editedTodo;
     },
   },
   created() {

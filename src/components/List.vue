@@ -3,7 +3,9 @@
     <li v-for="(todoItem, index) in todoItems" :key="index" class="row shadow">
       <span class="col-1"><i class="check fas fa-check-square"></i></span>
       <span class="col-9 li-text">{{ todoItem.item }}</span>
-      <span @click="editTodo" class="col-1"><i class="fas fa-edit"></i></span>
+      <span @click="editTodo(todoItem.item, index)" class="col-1"
+        ><i class="fas fa-edit"></i
+      ></span>
       <span class="col-1"><i class="fas fa-trash-alt"></i></span>
     </li>
   </ul>
@@ -16,8 +18,11 @@ export default {
     todoItems: Array,
   },
   methods: {
-    editTodo() {
-      alert("변경할 내용을 입력하세요.");
+    editTodo(data, index) {
+      // console.log(data, index);
+      localStorage.removeItem(data);
+      const editedTodo = prompt("변경할 내용을 입력하시오.", data);
+      this.$emit("editOneTodo", { editedTodo, index });
     },
   },
 };
