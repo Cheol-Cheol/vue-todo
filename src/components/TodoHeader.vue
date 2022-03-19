@@ -1,14 +1,11 @@
 <template>
   <header>todo</header>
-  <span class="todoItem-count">총 {{ todoItems.length }}개</span>
+  <span class="todoItem-count">총 {{ $store.state.todoItems.length }}개</span>
 </template>
 
 <script>
 export default {
   name: "TodoHeader",
-  props: {
-    todoItems: Array,
-  },
 };
 </script>
 

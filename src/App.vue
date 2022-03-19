@@ -1,7 +1,7 @@
 <template>
   <div class="fixed">{{ date() }}일</div>
   <div class="container">
-    <TodoHeader :todoItems="todoItems" />
+    <TodoHeader />
     <TodoContainer
       :todoItems="todoItems"
       :completedItems="completedItems"
@@ -73,18 +73,8 @@ export default {
     },
   },
   created() {
-    if (localStorage.length > 0) {
-      for (let i = 0; i < localStorage.length; i++) {
-        if (localStorage.key(i) !== "loglevel:webpack-dev-server") {
-          this.todoItems.push(
-            JSON.parse(localStorage.getItem(localStorage.key(i)))
-          );
-          this.completedItems.push(
-            JSON.parse(localStorage.getItem(localStorage.key(i)))
-          );
-        }
-      }
-    }
+    // 렌더링 시 로컬 스토리지의 데이터 가져오기
+    this.$store.commit("getLocalStorageData");
   },
   components: {
     TodoHeader,
