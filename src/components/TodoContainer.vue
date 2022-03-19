@@ -7,7 +7,8 @@
       placeholder="할 일을
     입력하시오."
     />
-    <List :todoItems="todoItems" @toggleCompleted="togglePassApp" />
+
+    <List />
 
     <!-- NavBar -->
     <nav class="d-flex justify-content-around">
@@ -16,7 +17,7 @@
     </nav>
 
     <!-- 버튼 -->
-    <span @click="addTodo" class="addBtn shadow">
+    <span @click="$store.commit('addTodoItem')" class="addBtn shadow">
       <i class="fas fa-plus"></i>
     </span>
 

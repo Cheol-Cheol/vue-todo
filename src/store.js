@@ -58,7 +58,7 @@ const store = createStore({
     },
     toggleCompleteItem(state, index) {
       const completedTodo = JSON.parse(
-        localStorage.getItem(state.todoItems[index])
+        localStorage.getItem(state.todoItems[index].item)
       );
       completedTodo.completed = !completedTodo.completed;
       localStorage.setItem(completedTodo.item, JSON.stringify(completedTodo));

@@ -3,7 +3,7 @@
     <li
       v-for="(todoItem, index) in $store.state.todoItems"
       :key="index"
-      :class="{ completed: todoItem.completed }"
+      :class="{ completed: $store.state.todoItems[index].completed }"
       class="row shadow"
     >
       <span @click="$store.commit('toggleCompleteItem', index)" class="col-1"
