@@ -5,12 +5,8 @@
     <TodoContainer
       :todoItems="todoItems"
       :completedItems="completedItems"
-      @addOneTodo="addOneTodo"
-      @editOneTodo="editOneTodo"
       @removeOneTodo="removeOneTodo"
       @toggleOneTodo="toggleOneTodo"
-      @stepZero="stepZero"
-      @stepOne="stepOne"
     />
   </div>
 </template>
@@ -32,23 +28,6 @@ export default {
       const now = new Date();
       return now.getDate();
     },
-    // addOneTodo(newTodo) {
-    //   const obj = {
-    //     item: newTodo,
-    //     completed: false,
-    //   };
-    //   localStorage.setItem(newTodo, JSON.stringify(obj));
-    //   this.todoItems.push(obj);
-    // },
-    editOneTodo(data) {
-      const obj = {
-        item: data.editedTodo,
-        completed: false,
-      };
-      console.log(obj);
-      localStorage.setItem(data.editedTodo, JSON.stringify(obj));
-      this.todoItems[data.index].item = data.editedTodo;
-    },
     removeOneTodo(data) {
       // console.log(data);
       this.todoItems.splice(data.index, 1);
@@ -61,15 +40,6 @@ export default {
         this.todoItems[data.index].completed = true;
         this.completedItems[data.index].completed = true;
       }
-    },
-    stepZero() {
-      this.step = 0;
-    },
-    stepOne() {
-      this.step = 1;
-      this.completedItems = this.todoItems.filter((item) => {
-        return item.filter == true;
-      });
     },
   },
   created() {

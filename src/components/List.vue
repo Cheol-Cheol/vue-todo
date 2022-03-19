@@ -1,7 +1,7 @@
 <template>
   <ul>
     <li
-      v-for="(todoItem, index) in todoItems"
+      v-for="(todoItem, index) in $store.state.todoItems"
       :key="index"
       :class="{ completed: todoItem.completed }"
       class="row shadow"
@@ -10,7 +10,7 @@
         ><i class="check fas fa-check-square"></i
       ></span>
       <span class="col-9 li-text">{{ todoItem.item }}</span>
-      <span @click="editTodo(todoItem.item, index)" class="col-1"
+      <span @click="$store.commit('editTodoItem', index)" class="col-1"
         ><i class="fas fa-edit"></i
       ></span>
       <span @click="removeTodo(todoItem.item, index)" class="col-1"
@@ -23,9 +23,6 @@
 <script>
 export default {
   name: "List",
-  props: {
-    todoItems: Array,
-  },
   methods: {
     editTodo(data, index) {
       const editedTodo = prompt("변경할 내용을 입력하시오.", data);

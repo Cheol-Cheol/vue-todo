@@ -7,13 +7,13 @@
       placeholder="할 일을
     입력하시오."
     />
-    <router-view
+    <List
       :todoItems="todoItems"
       :completedItems="completedItems"
       @editOneTodo="editPassApp"
       @removeOneTodo="removePassApp"
       @toggleCompleted="togglePassApp"
-    ></router-view>
+    />
 
     <!-- NavBar -->
     <nav class="d-flex justify-content-around">
@@ -32,6 +32,7 @@
 
 <script>
 import Modal from "./common/Modal.vue";
+import List from "./List.vue";
 
 export default {
   name: "TodoContainer",
@@ -68,6 +69,7 @@ export default {
   },
   components: {
     Modal,
+    List,
   },
   created() {
     console.log(this);
