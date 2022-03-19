@@ -6,5 +6,5 @@
 
 
 ## Dev Log
-[22-01-25] localStorage로 CRUD 구현
+[22-01-25] localStorage로 CRUD 구현  
 [22-03-20] Vuex 상태관리 리팩토링
