@@ -32,14 +32,14 @@ export default {
       const now = new Date();
       return now.getDate();
     },
-    addOneTodo(newTodo) {
-      const obj = {
-        item: newTodo,
-        completed: false,
-      };
-      localStorage.setItem(newTodo, JSON.stringify(obj));
-      this.todoItems.push(obj);
-    },
+    // addOneTodo(newTodo) {
+    //   const obj = {
+    //     item: newTodo,
+    //     completed: false,
+    //   };
+    //   localStorage.setItem(newTodo, JSON.stringify(obj));
+    //   this.todoItems.push(obj);
+    // },
     editOneTodo(data) {
       const obj = {
         item: data.editedTodo,

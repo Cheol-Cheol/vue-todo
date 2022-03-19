@@ -1,12 +1,12 @@
 <template>
   <div class="todo-container shadow container">
     <input
-      v-model="newTodoItem"
-      @keyup.enter="addTodo"
+      v-model="$store.state.newTodoItem"
+      @keyup.enter="$store.commit('addTodoItem')"
       type="text"
-      placeholder="할 일을 입력하시오."
+      placeholder="할 일을
+    입력하시오."
     />
-
     <router-view
       :todoItems="todoItems"
       :completedItems="completedItems"
@@ -46,16 +46,16 @@ export default {
     completedItems: Array,
   },
   methods: {
-    addTodo() {
-      if (this.newTodoItem !== "") {
-        // 데이터의 조작은 app.vue에서만
-        this.$emit("addOneTodo", this.newTodoItem);
-        this.newTodoItem = "";
-      } else {
-        // 모달창
-        this.showModal = true;
-      }
-    },
+    // addTodo() {
+    //   if (this.newTodoItem !== "") {
+    //     // 데이터의 조작은 app.vue에서만
+    //     this.$emit("addOneTodo", this.newTodoItem);
+    //     this.newTodoItem = "";
+    //   } else {
+    //     // 모달창
+    //     this.showModal = true;
+    //   }
+    // },
     editPassApp(data) {
       this.$emit("editOneTodo", data);
     },

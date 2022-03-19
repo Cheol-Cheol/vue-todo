@@ -4,6 +4,7 @@ const store = createStore({
   state() {
     return {
       todoItems: [],
+      newTodoItem: "",
     };
   },
   mutations: {
@@ -16,6 +17,19 @@ const store = createStore({
             );
           }
         }
+      }
+    },
+    addTodoItem(state) {
+      if (state.newTodoItem !== "") {
+        const obj = {
+          item: state.newTodoItem,
+          completed: false,
+        };
+        localStorage.setItem(state.newTodoItem, JSON.stringify(obj));
+        state.todoItems.push(obj);
+        state.newTodoItem = "";
+      } else {
+        this.showModal = true;
       }
     },
   },
