@@ -2,7 +2,7 @@
 
 ## 실행 화면
 
-<img src="https://user-images.githubusercontent.com/82077853/159127833-cbeb9c57-9f8d-41e3-a23c-bf20f3e577ff.mp4">
+<img src="https://user-images.githubusercontent.com/82077853/159127974-527d1d4a-2e80-4f67-821c-23cc74ca30b3.gif">
 
 
 ## Dev Log
