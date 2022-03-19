@@ -41,7 +41,6 @@ export default {
       this.todoItems.push(obj);
     },
     editOneTodo(data) {
-      // console.log(data);
       const obj = {
         item: data.editedTodo,
         completed: false,
@@ -55,9 +54,13 @@ export default {
       this.todoItems.splice(data.index, 1);
     },
     toggleOneTodo(data) {
-      // console.log(data);
-      this.todoItems[data.index].completed =
-        !this.todoItems[data.index].completed;
+      if (this.todoItems[data.index].completed) {
+        this.todoItems[data.index].completed = false;
+        this.completedItems[data.index].completed = false;
+      } else {
+        this.todoItems[data.index].completed = true;
+        this.completedItems[data.index].completed = true;
+      }
     },
     stepZero() {
       this.step = 0;

@@ -15,7 +15,6 @@
       @toggleCompleted="togglePassApp"
     ></router-view>
 
-    <!-- <router-link></router-link> -->
     <!-- NavBar -->
     <nav class="d-flex justify-content-around">
       <span @click="$router.push('/')" class="active">할 일 목록</span>
@@ -69,6 +68,12 @@ export default {
   },
   components: {
     Modal,
+  },
+  created() {
+    console.log(this);
+  },
+  watch() {
+    console.log(this);
   },
 };
 </script>
