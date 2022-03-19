@@ -7,13 +7,7 @@
       placeholder="할 일을
     입력하시오."
     />
-    <List
-      :todoItems="todoItems"
-      :completedItems="completedItems"
-      @editOneTodo="editPassApp"
-      @removeOneTodo="removePassApp"
-      @toggleCompleted="togglePassApp"
-    />
+    <List :todoItems="todoItems" @toggleCompleted="togglePassApp" />
 
     <!-- NavBar -->
     <nav class="d-flex justify-content-around">
@@ -38,44 +32,12 @@ export default {
   name: "TodoContainer",
   data() {
     return {
-      newTodoItem: "",
       showModal: false,
     };
-  },
-  props: {
-    todoItems: Array,
-    completedItems: Array,
-  },
-  methods: {
-    // addTodo() {
-    //   if (this.newTodoItem !== "") {
-    //     // 데이터의 조작은 app.vue에서만
-    //     this.$emit("addOneTodo", this.newTodoItem);
-    //     this.newTodoItem = "";
-    //   } else {
-    //     // 모달창
-    //     this.showModal = true;
-    //   }
-    // },
-    editPassApp(data) {
-      this.$emit("editOneTodo", data);
-    },
-    removePassApp(data) {
-      this.$emit("removeOneTodo", data);
-    },
-    togglePassApp(data) {
-      this.$emit("toggleOneTodo", data);
-    },
   },
   components: {
     Modal,
     List,
-  },
-  created() {
-    console.log(this);
-  },
-  watch() {
-    console.log(this);
   },
 };
 </script>

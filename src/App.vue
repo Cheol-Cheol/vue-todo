@@ -2,12 +2,7 @@
   <div class="fixed">{{ date() }}일</div>
   <div class="container">
     <TodoHeader />
-    <TodoContainer
-      :todoItems="todoItems"
-      :completedItems="completedItems"
-      @removeOneTodo="removeOneTodo"
-      @toggleOneTodo="toggleOneTodo"
-    />
+    <TodoContainer />
   </div>
 </template>
 
@@ -17,29 +12,10 @@ import TodoContainer from "./components/TodoContainer.vue";
 
 export default {
   name: "App",
-  data() {
-    return {
-      todoItems: [],
-      completedItems: [],
-    };
-  },
   methods: {
     date() {
       const now = new Date();
       return now.getDate();
-    },
-    removeOneTodo(data) {
-      // console.log(data);
-      this.todoItems.splice(data.index, 1);
-    },
-    toggleOneTodo(data) {
-      if (this.todoItems[data.index].completed) {
-        this.todoItems[data.index].completed = false;
-        this.completedItems[data.index].completed = false;
-      } else {
-        this.todoItems[data.index].completed = true;
-        this.completedItems[data.index].completed = true;
-      }
     },
   },
   created() {

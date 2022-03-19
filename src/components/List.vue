@@ -6,14 +6,14 @@
       :class="{ completed: todoItem.completed }"
       class="row shadow"
     >
-      <span @click="toggleComplete(todoItem, index)" class="col-1"
+      <span @click="$store.commit('toggleCompleteItem', index)" class="col-1"
         ><i class="check fas fa-check-square"></i
       ></span>
       <span class="col-9 li-text">{{ todoItem.item }}</span>
       <span @click="$store.commit('editTodoItem', index)" class="col-1"
         ><i class="fas fa-edit"></i
       ></span>
-      <span @click="removeTodo(todoItem.item, index)" class="col-1"
+      <span @click="$store.commit('removeTodoItem', index)" class="col-1"
         ><i class="fas fa-trash-alt"></i
       ></span>
     </li>
@@ -23,30 +23,6 @@
 <script>
 export default {
   name: "List",
-  methods: {
-    editTodo(data, index) {
-      const editedTodo = prompt("변경할 내용을 입력하시오.", data);
-      if (editedTodo !== "") {
-        localStorage.removeItem(data);
-        this.$emit("editOneTodo", { editedTodo, index });
-      } else {
-        alert("내용은 입력하세요");
-        this.editTodo(data, index);
-      }
-    },
-    removeTodo(data, index) {
-      if (confirm("해당 todo를 삭제하시겠습니까?")) {
-        localStorage.removeItem(data);
-        this.$emit("removeOneTodo", { data, index });
-      }
-    },
-    toggleComplete(data, index) {
-      const completedTodo = JSON.parse(localStorage.getItem(data.item));
-      completedTodo.completed = !completedTodo.completed;
-      localStorage.setItem(completedTodo.item, JSON.stringify(completedTodo));
-      this.$emit("toggleCompleted", { data, index });
-    },
-  },
 };
 </script>
 

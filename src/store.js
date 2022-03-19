@@ -47,21 +47,28 @@ const store = createStore({
         state.todoItems[index].item = editedTodo;
       } else {
         alert("내용은 입력하세요");
-        // this.editTodo(data, index);
+      }
+      // TODO: prompt에서 취소를 눌렀을 경우
+    },
+    removeTodoItem(state, index) {
+      if (confirm("해당 todo를 삭제하시겠습니까?")) {
+        localStorage.removeItem(state.todoItems[index].item);
+        state.todoItems.splice(index, 1);
       }
     },
-    // removeTodo(data, index) {
-    //   if (confirm("해당 todo를 삭제하시겠습니까?")) {
-    //     localStorage.removeItem(data);
-    //     this.$emit("removeOneTodo", { data, index });
-    //   }
-    // },
-    // toggleComplete(data, index) {
-    //   const completedTodo = JSON.parse(localStorage.getItem(data.item));
-    //   completedTodo.completed = !completedTodo.completed;
-    //   localStorage.setItem(completedTodo.item, JSON.stringify(completedTodo));
-    //   this.$emit("toggleCompleted", { data, index });
-    // },
+    toggleCompleteItem(state, index) {
+      const completedTodo = JSON.parse(
+        localStorage.getItem(state.todoItems[index])
+      );
+      completedTodo.completed = !completedTodo.completed;
+      localStorage.setItem(completedTodo.item, JSON.stringify(completedTodo));
+      // this.$emit("toggleCompleted", { data, index });
+      if (state.todoItems[index].completed) {
+        state.todoItems[index].completed = false;
+      } else {
+        state.todoItems[index].completed = true;
+      }
+    },
   },
 });
 
